@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">79bf5354db020010a43bd426ca9619d7</sp_column>
+        <sp_widget display_value="Reassign Widget">b1bf9b90db020010a43bd426ca961968</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-12-27 08:50:55</sys_created_on>
+        <sys_id>b46b235cdb020010a43bd426ca96196d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="ReWidget" source="x_252019_rewidget">d93f9350db020010a43bd426ca961929</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ReWidget">d93f9350db020010a43bd426ca961929</sys_scope>
+        <sys_update_name>sp_instance_b46b235cdb020010a43bd426ca96196d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-12-27 08:50:55</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=b46b235cdb020010a43bd426ca96196d"/>
+</record_update>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($uibModal, $scope, spUtil) {
+	var c = this;
+
+	$scope.$on('record.updated', function(name, data) {
+		if(c.data.action == 'reassign'){
+			c.data.action = undefined;
+		}
+		spUtil.update($scope);
+	});
+
+	c.Reassign = function(action) {
+		c.data.action = action;
+		c.data.group = c.data.setGroup;
+		
+		c.server.update().then(function() {
+			c.data.action = undefined;
+			spUtil.addInfoMessage("Incident has been Reopened", 3000);
+			c.modalInstance.close();
+		}); 
+	};
+	
+	c.openModalReassign = function() {
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'modalTemplateReassign',
+			scope: $scope
+		});
+	};
+	c.closeModal = function() {
+		c.modalInstance.close();
+	};
+	
+	
+	$scope.group = {
+
+       displayValue: c.data.grp.name,
+
+       value: c.data.grp.sys_id,
+
+       name: 'group'
+
+};
+
+$scope.$on("field.change", function(evt, parms) {
+
+       if (parms.field.name == 'group')
+
+               c.data.setGroup = parms.newValue;
+
+       
+
+       /* c.server.update().then(function(response) {         
+
+               spUtil.update($scope);
+
+       }) */
+
+});
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>reassign_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Reassign Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+
+	// Get table & sys_id
+	//data.table = input.table || $sp.getParameter("table") || 'incident';
+	//data.sys_id = input.sys_id || $sp.getParameter("sys_id") || '0b4738abdbb10010a43bd426ca9619d2';
+
+	data.table = 'incident';
+	data.sys_id = '0b4738abdbb10010a43bd426ca9619d2';
+
+	// Valid GlideRecord
+	var gr = new GlideRecord(data.table);
+	if (!gr.isValid())
+		return;
+
+	// Valid sys_id
+	if (!gr.get(data.sys_id))
+		return;
+
+	//Button Visibility
+	//if(data.table == 'incident' && gr.active == true && (gr.incident_state != 6 && gr.incident_state != 7) && (gr.caller_id == gs.getUserID() || gr.opened_by == gs.getUserID())){
+
+	if(data.table == 'incident' && gr.getValue('active') == 'true' ){
+
+		data.showWidget = true;
+		data.showReassign = true;
+
+	} 
+	else {
+		data.showWidget = false;
+		data.showReassign = false;
+	}
+
+	//input
+	if (input && input.action === 'reassign' && input.group ) {
+
+		// If Incident table
+		if (data.table == 'incident') {
+			gr.setValue('assignment_group', input.group);
+			//		gr.setValue('state', 1);
+			gr.setValue('assigned_to', '');
+			gr.comments = "Ticket reassigned. \nReopened with comments: "+ input.reopenComments;
+			gr.update();
+		}
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-12-27 07:59:56</sys_created_on>
+        <sys_id>b1bf9b90db020010a43bd426ca961968</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Reassign Widget</sys_name>
+        <sys_package display_value="ReWidget" source="x_252019_rewidget">d93f9350db020010a43bd426ca961929</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ReWidget">d93f9350db020010a43bd426ca961929</sys_scope>
+        <sys_update_name>sp_widget_b1bf9b90db020010a43bd426ca961968</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-12-27 09:23:30</sys_updated_on>
+        <template><![CDATA[<div>
+
+  <div class="panel b" ng-if="data.showWidget">
+    <div class="panel-heading bg-primary">Actions</div>
+    <div class="panel-body">
+      <button type="button" class="btn btn-success btn-block" ng-click="c.openModalReassign()" ng-if="data.showReassign">Reopen</button>
+      <div ng-if="data.response1" class="alert alert-info"></div>
+    </div>
+  </div>
+
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>modalTemplateReassign</id>
+        <sp_widget display_value="Reassign Widget">b1bf9b90db020010a43bd426ca961968</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-12-27 08:05:41</sys_created_on>
+        <sys_id>71b02394db020010a43bd426ca9619eb</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>modalTemplateReassign</sys_name>
+        <sys_package display_value="ReWidget" source="x_252019_rewidget">d93f9350db020010a43bd426ca961929</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ReWidget">d93f9350db020010a43bd426ca961929</sys_scope>
+        <sys_update_name>sp_ng_template_71b02394db020010a43bd426ca9619eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-12-27 08:49:23</sys_updated_on>
+        <template><![CDATA[<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Provide a reason to Reassign Ticket</h4>
+  </div>
+  <div class="panel-body wrapper-xl">
+    <form name="modalTemplateReopen" ng-submit="c.Reassign('reassign')">
+      <div class="form-group">
+        <sn-record-picker field="group" table="'sys_user_group'" ng-required="true" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
+      </div>  
+      <div class="form-group">
+        <textarea required sp-autosize="true" ng-required="true" ng-model="data.reassignComments" id="reassignComments" placeholder="Comments required" class="form-control ng-pristine ng-valid ng-scope ng-empty ng-touched" aria-invalid="false" style="overflow: hidden; word-wrap: break-word; resize: horizontal;"></textarea>
+      </div>
+      <input class="btn btn-primary" type="submit" />
+    </form>
+  </div>
+</div>]]></template>
+    </sp_ng_template>
+</record_update>
