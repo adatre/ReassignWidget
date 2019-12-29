@@ -2,22 +2,22 @@
     <sp_column action="INSERT_OR_UPDATE">
         <class_name/>
         <order>1</order>
-        <size/>
+        <size>12</size>
         <size_lg/>
         <size_sm/>
         <size_xs/>
-        <sp_row display_value="1">b9bf5354db020010a43bd426ca9619d5</sp_row>
+        <sp_row display_value="1">6c2cca81db020010a43bd426ca9619e7</sp_row>
         <sys_class_name>sp_column</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2019-12-27 07:59:56</sys_created_on>
-        <sys_id>79bf5354db020010a43bd426ca9619d7</sys_id>
+        <sys_created_on>2019-12-29 09:50:13</sys_created_on>
+        <sys_id>2c2cca81db020010a43bd426ca9619e9</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>1</sys_name>
         <sys_package display_value="ReWidget" source="x_252019_rewidget">d93f9350db020010a43bd426ca961929</sys_package>
         <sys_policy/>
         <sys_scope display_value="ReWidget">d93f9350db020010a43bd426ca961929</sys_scope>
-        <sys_update_name>sp_column_79bf5354db020010a43bd426ca9619d7</sys_update_name>
+        <sys_update_name>sp_column_2c2cca81db020010a43bd426ca9619e9</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-12-27 07:59:56</sys_updated_on>
+        <sys_updated_on>2019-12-29 09:50:13</sys_updated_on>
     </sp_column>
 </record_update>
